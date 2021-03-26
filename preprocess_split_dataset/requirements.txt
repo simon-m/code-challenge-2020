@@ -1,0 +1,4 @@
+nltk>=3.5
+pyarrow>=1.0.1
+unidecode>=1.1.1
+

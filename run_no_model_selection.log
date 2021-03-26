@@ -1,0 +1,133 @@
+root@pcspec:/home/simon/repos/code-challenge-2020# docker-compose up orchestrator
+Creating code-challenge-2020_luigid_1         ... done
+Creating code-challenge-2020_dask-scheduler_1 ... done
+Creating code-challenge-2020_orchestrator_1   ... done
+Attaching to code-challenge-2020_orchestrator_1
+orchestrator_1    | DEBUG: Checking if ReportEvaluation(no_remove_finished=False, out_dir=/usr/share/data/results/, out_fname=report.html) is complete
+orchestrator_1    | DEBUG: Checking if GenerateTrainFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/train_set, feature_info=False) is complete
+orchestrator_1    | DEBUG: Checking if GenerateTestFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/test_set, feature_info=True) is complete
+orchestrator_1    | DEBUG: Checking if TrainModel(no_remove_finished=False, out_dir=/usr/share/data/models, n_iter=100, select_model=False) is complete
+orchestrator_1    | INFO: Informed scheduler that task   ReportEvaluation_False__usr_share_data__report_html_36b8e0439c   has status   PENDING
+orchestrator_1    | DEBUG: Checking if PreprocessSplitDataset(no_remove_finished=False, out_dir=/usr/share/data/data/intermediate, test_size=0.2) is complete
+orchestrator_1    | INFO: Informed scheduler that task   TrainModel_100_False__usr_share_data__4c10b76a43   has status   PENDING
+orchestrator_1    | DEBUG: Checking if DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv) is complete
+orchestrator_1    | INFO: Informed scheduler that task   PreprocessSplitDataset_False__usr_share_data__0_2_8e07d4fe0d   has status   PENDING
+orchestrator_1    | INFO: Informed scheduler that task   DownloadData_wine_dataset_False__usr_share_data__cd40dc6e72   has status   PENDING
+orchestrator_1    | INFO: Informed scheduler that task   GenerateTestFeatures_True_False__usr_share_data__8298adf467   has status   PENDING
+orchestrator_1    | INFO: Informed scheduler that task   GenerateTrainFeatures_False_False__usr_share_data__63fc0bbceb   has status   PENDING
+orchestrator_1    | INFO: Done scheduling tasks
+orchestrator_1    | INFO: Running Worker with 1 processes
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 6
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+orchestrator_1    | INFO: INFO:download-data:Downloading dataset
+orchestrator_1    | INFO: INFO:download-data:Will write to /usr/share/data/data/raw/wine_dataset.csv
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   DownloadData_wine_dataset_False__usr_share_data__cd40dc6e72   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 5
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   PreprocessSplitDataset(no_remove_finished=False, out_dir=/usr/share/data/data/intermediate, test_size=0.2)
+orchestrator_1    | INFO: [nltk_data] Downloading package stopwords to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Unzipping corpora/stopwords.zip.
+orchestrator_1    | INFO: [nltk_data] Downloading package punkt to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Unzipping tokenizers/punkt.zip.
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Test size is set to: 0.2
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Starting preprocessing
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Preprocessing done
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Start random splitting
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Dataset shape: (Delayed('int-117c44ad-f657-4324-b748-e645e6500dbe'), 14)
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Random splitting done
+orchestrator_1    | INFO: /opt/conda/lib/python3.6/site-packages/fastparquet/util.py:221: FutureWarning: A future version of pandas will default to `skipna=True`. To silence this warning, pass `skipna=True|False` explicitly.
+orchestrator_1    | INFO: inferred_dtype = infer_dtype(column)
+orchestrator_1    | INFO: INFO:preprocess-split-dataset:Files written in /usr/share/data/data/intermediate
+orchestrator_1    | INFO: [nltk_data] Downloading package stopwords to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package stopwords is already up-to-date!
+orchestrator_1    | INFO: [nltk_data] Downloading package punkt to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package punkt is already up-to-date!
+orchestrator_1    | INFO: [nltk_data] Downloading package stopwords to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package stopwords is already up-to-date!
+orchestrator_1    | INFO: [nltk_data] Downloading package punkt to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package punkt is already up-to-date!
+orchestrator_1    | INFO: [nltk_data] Downloading package stopwords to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package stopwords is already up-to-date!
+orchestrator_1    | INFO: [nltk_data] Downloading package punkt to /root/nltk_data...
+orchestrator_1    | INFO: [nltk_data]   Package punkt is already up-to-date!
+orchestrator_1    | INFO: distributed.process - WARNING - reaping stray process <ForkServerProcess(ForkServerProcess-3, started daemon)>
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      PreprocessSplitDataset(no_remove_finished=False, out_dir=/usr/share/data/data/intermediate, test_size=0.2)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   PreprocessSplitDataset_False__usr_share_data__0_2_8e07d4fe0d   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 4
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   TrainModel(no_remove_finished=False, out_dir=/usr/share/data/models, n_iter=100, select_model=False)
+orchestrator_1    | INFO: INFO:train-model:Training model
+orchestrator_1    | INFO: INFO:train-model:Training done
+orchestrator_1    | INFO: INFO:train-model:Performing feature extraction
+orchestrator_1    | INFO: INFO:train-model:29
+orchestrator_1    | INFO: INFO:train-model:Feature extraction done
+orchestrator_1    | INFO: INFO:train-model:Results written in /usr/share/data/models
+orchestrator_1    | INFO: /opt/conda/lib/python3.6/multiprocessing/semaphore_tracker.py:143: UserWarning: semaphore_tracker: There appear to be 1 leaked semaphores to clean up at shutdown
+orchestrator_1    | INFO: len(cache))
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      TrainModel(no_remove_finished=False, out_dir=/usr/share/data/models, n_iter=100, select_model=False)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   TrainModel_100_False__usr_share_data__4c10b76a43   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 3
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   GenerateTrainFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/train_set, feature_info=False)
+orchestrator_1    | INFO: INFO:generate-features:Loading done
+orchestrator_1    | INFO: INFO:generate-features:Transform done
+orchestrator_1    | INFO: INFO:generate-features:Results written in /usr/share/data/data/processed/train_set
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      GenerateTrainFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/train_set, feature_info=False)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   GenerateTrainFeatures_False_False__usr_share_data__63fc0bbceb   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 2
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   GenerateTestFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/test_set, feature_info=True)
+orchestrator_1    | INFO: INFO:generate-features:Loading done
+orchestrator_1    | INFO: INFO:generate-features:Transform done
+orchestrator_1    | INFO: INFO:generate-features:Results written in /usr/share/data/data/processed/test_set
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      GenerateTestFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/test_set, feature_info=True)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   GenerateTestFeatures_True_False__usr_share_data__8298adf467   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Pending tasks: 1
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) running   ReportEvaluation(no_remove_finished=False, out_dir=/usr/share/data/results/, out_fname=report.html)
+orchestrator_1    | INFO: Processing chunk 1 named None from line 8
+orchestrator_1    | INFO: Processing chunk 2 named None from line 23
+orchestrator_1    | INFO: Processing chunk 3 named None from line 47
+orchestrator_1    | INFO: Processing chunk 4 named None from line 54
+orchestrator_1    | INFO: Processing chunk 5 named None from line 59
+orchestrator_1    | INFO: Processing chunk 6 named None from line 64
+orchestrator_1    | INFO: Processing chunk 7 named None from line 68
+orchestrator_1    | INFO: Processing chunk 8 named None from line 77
+orchestrator_1    | INFO: Processing chunk 9 named None from line 87
+orchestrator_1    | INFO: Processing chunk 10 named None from line 98
+orchestrator_1    | INFO: Processing chunk 11 named None from line 107
+orchestrator_1    | INFO: Processing chunk 12 named None from line 120
+orchestrator_1    | INFO: Processing chunk 13 named None from line 139
+orchestrator_1    | INFO: Processing chunk 14 named None from line 157
+orchestrator_1    | INFO: Processing chunk 15 named None from line 176
+orchestrator_1    | INFO: Weaved report_evaluation.py to /usr/share/data/results/report.html
+orchestrator_1    | INFO: [pid 1] Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) done      ReportEvaluation(no_remove_finished=False, out_dir=/usr/share/data/results/, out_fname=report.html)
+orchestrator_1    | DEBUG: 1 running tasks, waiting for next task to finish
+orchestrator_1    | INFO: Informed scheduler that task   ReportEvaluation_False__usr_share_data__report_html_36b8e0439c   has status   DONE
+orchestrator_1    | DEBUG: Asking scheduler for work...
+orchestrator_1    | DEBUG: Done
+orchestrator_1    | DEBUG: There are no more tasks to run at this time
+orchestrator_1    | INFO: Worker Worker(salt=980853485, workers=1, host=bf9dfbd1a7a7, username=root, pid=1) was stopped. Shutting down Keep-Alive thread
+orchestrator_1    | INFO: 
+orchestrator_1    | ===== Luigi Execution Summary =====
+orchestrator_1    | 
+orchestrator_1    | Scheduled 6 tasks of which:
+orchestrator_1    | * 6 ran successfully:
+orchestrator_1    |     - 1 DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+orchestrator_1    |     - 1 GenerateTestFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/test_set, feature_info=True)
+orchestrator_1    |     - 1 GenerateTrainFeatures(no_remove_finished=False, out_dir=/usr/share/data/data/processed/train_set, feature_info=False)
+orchestrator_1    |     - 1 PreprocessSplitDataset(no_remove_finished=False, out_dir=/usr/share/data/data/intermediate, test_size=0.2)
+orchestrator_1    |     - 1 ReportEvaluation(no_remove_finished=False, out_dir=/usr/share/data/results/, out_fname=report.html)
+orchestrator_1    |     ...
+orchestrator_1    | 
+orchestrator_1    | This progress looks :) because there were no failed tasks or missing dependencies
+orchestrator_1    | 
+orchestrator_1    | ===== Luigi Execution Summary =====
+

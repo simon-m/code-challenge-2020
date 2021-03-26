@@ -1,0 +1,24 @@
+# IntelliJ IDE
+/.idea
+
+# MacOS
+/.DS_Store
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# jupyter notebook
+**/.ipynb_checkpoints
+
+# any data
+data_root/**.html
+data_root/**.joblib
+data_root/**.csv
+data_root/**.pickle
+data_root/**.pkl
+data_root/**.json
+data_root/**.parquet
